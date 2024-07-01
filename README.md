@@ -333,6 +333,4 @@ R Documentation:
 
 - R Core Team (2023). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL (https://www.R-project.org/)
 
-Additional Resources:
 
-- Winter, B. (2020). Statistics for Linguists: An Introduction Using R. Routledge.
