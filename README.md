@@ -190,11 +190,6 @@ if (file.exists(data_path)) {
   print("The file does not exist. Please check the file path.")
 }
 
-# Load necessary libraries
-library(tidyverse)
-library(lubridate)
-library(ggplot2)
-
 # Define file path
 data_path <- "C:/Users/Owner/Downloads/archive/ttc-bus-delay-data-2022.csv"
 
