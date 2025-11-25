@@ -4,16 +4,18 @@
 - [Project Overview](#project-overview)
 - [Tools](#tools)
 - [Data Preparation](#data-preparation)
+  - [Data Exploration](#data-exploration)
+  - [Data Cleaning and Feature Creation](#data-cleaning-and-feature-creation)
 - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-- [Data Analysis](#data-analysis)
-- [Results/Findings](#resultsfindings)
+- [Data Analysis Code](#data-analysis-code)
+- [Results and Findings](#results-and-findings)
 - [Recommendations](#recommendations)
 - [Limitations](#limitations)
+- [External Repository Access](#external-repository-access)
 - [References](#references)
 
-### project overview 
----
-This project analyzes TTC bus delay data for the year 2022. The dataset includes details about the date, time, route, and incident causing the delay. The aim is to identify patterns in the delays, such as which times of day or days of the week have the most delays, and the most common causes of delays. This analysis demonstrates skills in data cleaning, manipulation, visualization, and statistical analysis.
+### Project Overview
+This project analyzes TTC bus delay data for the year 2022. The dataset includes details about the date, time, route, and incident causing the delay. The aim is to identify patterns in the delays—such as which times of day or days of the week have the most delays and the most common causes. The analysis demonstrates skills in data cleaning, manipulation, visualization, and statistical analysis.
 
 ![Rplot05](https://github.com/NeoSphereAnalytics/Analysis-of-TTC-Bus-Delay-/assets/174109528/a92c0232-b1fe-49bb-874c-fb17ca7b4d88)
 ![Rplot01](https://github.com/NeoSphereAnalytics/Analysis-of-TTC-Bus-Delay-/assets/174109528/3a94ceb1-47d9-4627-9260-9098520caa8b)
@@ -21,52 +23,46 @@ This project analyzes TTC bus delay data for the year 2022. The dataset includes
 ![Rplot02](https://github.com/NeoSphereAnalytics/Analysis-of-TTC-Bus-Delay-/assets/174109528/c96ba39b-334b-4116-841d-c863be680154)
 
 ### Tools
+- R – Data analysis and visualization ([download here](https://www.r-project.org/))
 
-- R - Data analysis and visualization [download here] (https://www.r-project.org/)
+### Data Preparation
 
-### Data preperation 
-
-Data Exploration Phase:
-
+#### Data Exploration
 1. Loaded the dataset from the specified file path.
 2. Checked if the dataset is empty and inspected the first few rows.
 3. Summarized the dataset to understand the distribution and basic statistics of each variable.
 4. Checked the structure and types of variables in the dataset.
 
-Data Cleaning and Preparation Phase:
-
-1. Converted the 'Date' column to Date format.
-2. Converted the 'Time' column to POSIXct format and extracted the hour from the time.
-3. Removed rows with NA values in the 'Hour' column.
+#### Data Cleaning and Feature Creation
+1. Converted the `Date` column to `Date` format.
+2. Converted the `Time` column to `POSIXct` format and extracted the hour from the time.
+3. Removed rows with `NA` values in the `Hour` column.
 4. Grouped the data by hour to count the frequency of delays.
 5. Grouped the data by location to count the frequency of delays at different locations.
 
-### Exploratory Data Analysis (EDA):
+### Exploratory Data Analysis (EDA)
 
-Total Aggregates:
-   
+**Total Aggregates**
 - What is the total number of bus delays recorded in the dataset?
 - What is the distribution of delays by the hour of the day?
 - What are the top 20 locations with the most bus delays?
 
-Hourly Distribution:
-
+**Hourly Distribution**
 - What is the total number of delays for each hour of the day?
 - What is the hour with the most delays?
 - How does the number of delays vary across different hours of the day?
 
-Location-specific Insights:
-
+**Location-Specific Insights**
 - Which locations have the highest number of bus delays?
 - What are the top 20 locations with the most delays?
 - How does the frequency of delays vary across different locations?
 
-Cause of Delays Exploration:
+**Cause of Delays Exploration**
 - What are the most common causes of bus delays?
 - How does the frequency of delays vary by different causes?
 - Which causes of delays are most frequent?
-   
-### Data analysis
+
+### Data Analysis Code
 
 ```R
 # Load necessary libraries
@@ -283,49 +279,47 @@ if (file.exists(data_path)) {
   
 ```
 
-### Results/Findings
+### Results and Findings
 
-Total Aggregates:
+**Total Aggregates**
 - The dataset contains 27,351 delay records.
-- The delays are distributed across various hours of the day, with peaks observed during specific times.
+- Delays are distributed across various hours of the day, with peaks observed during specific times.
 
-Hourly Distribution:
-- The hour with the most delays is 14:00 (2 PM), indicating a significant midday delay peak.
-- Other significant peaks are observed during early morning and evening hours.
+**Hourly Distribution**
+- The hour with the most delays is 14:00 (2 PM), indicating a significant midday peak.
+- Additional peaks occur during early morning and evening hours.
 
-Location-specific Insights:
+**Location-Specific Insights**
 - Kipling Station has the highest number of delays, followed by Kennedy Station and Pioneer Village Station.
 - The top 20 locations with the most delays are primarily major transit hubs and intersections.
 
-Causes of Bus Delays:
+**Causes of Bus Delays**
 - The most frequent cause of bus delays is "Operations - Operator" with 9,554 instances.
-- Other significant causes include "Mechanical" issues (7,979 instances) and "Collision - TTC" (1,823 instances).
+- Other significant causes include mechanical issues (7,979 instances) and collisions involving TTC vehicles (1,823 instances).
 
 ### Recommendations
 
-- Focus on Mitigating Delays During Peak Hours: Implement measures to reduce delays, especially around 14:00 and other peak times.
-- Targeted Measures at Key Locations: Address issues at high-delay locations such as Kipling and Kennedy Stations with specific operational improvements.
-- Address Common Causes of Delays: Develop strategies to minimize delays caused by operator issues and mechanical problems, possibly through enhanced training and maintenance protocols.
-- Enhanced Real-Time Monitoring: Improve real-time monitoring and response strategies to quickly address and mitigate delays as they occur.
-- Further Analysis: Conduct additional research to understand the underlying factors contributing to delays at specific times and locations, including the impact of external factors like weather and traffic conditions.
+- **Focus on mitigating peak-hour delays:** Implement measures to reduce delays around 14:00 and other peak times.
+- **Target key locations:** Address issues at high-delay locations such as Kipling and Kennedy Stations with targeted operational improvements.
+- **Address common causes:** Reduce delays caused by operator and mechanical issues through enhanced training and maintenance protocols.
+- **Enhance real-time monitoring:** Improve monitoring and response strategies to quickly address and mitigate delays as they occur.
+- **Conduct further analysis:** Explore underlying factors contributing to delays at specific times and locations, including external influences like weather and traffic conditions.
 
 ### Limitations
 
-- Temporal Scope: The dataset is limited to 2022 and may not capture trends over multiple years.
-- Operational Factors: Analysis is based solely on reported delays without considering other operational factors that might influence delay patterns.
-- Data Quality: Data quality and completeness may affect the accuracy of the findings, and there may be inconsistencies or gaps in the reported values.
-- External Factors: The analysis does not account for the impact of external factors such as weather, traffic conditions, or special events on bus delays.
-- Generalization: The findings from this analysis may not be generalizable to other transit systems or regions, as the factors influencing bus delays can vary widely across different contexts.
+- **Temporal scope:** The dataset is limited to 2022 and may not capture trends over multiple years.
+- **Operational factors:** Analysis is based on reported delays without considering other operational factors that might influence delay patterns.
+- **Data quality:** Data quality and completeness may affect accuracy; inconsistencies or gaps may exist in reported values.
+- **External factors:** The analysis does not account for the impact of external factors such as weather, traffic conditions, or special events.
+- **Generalization:** Findings may not generalize to other transit systems or regions because contributing factors vary widely.
+
+### External Repository Access
+
+An attempt was made to access the repository at https://github.com/Ibrahim-Sereer/Global-Data-Analysis-, but the request was blocked by the network proxy with a 403 response. External repositories cannot be reached from this environment without additional network access.
 
 ### References
 
-Dataset Source:
-
-Toronto Bus Delay 2022: Toronto Transit Commission (TTC) delay data - Bus. Available on Kaggle from [here](https://www.kaggle.com/datasets/reihanenamdari/toronto-bus-delay-2022).
-
-
-R Documentation:
-
+- Toronto Bus Delay 2022: Toronto Transit Commission (TTC) delay data - Bus. Available on Kaggle from [here](https://www.kaggle.com/datasets/reihanenamdari/toronto-bus-delay-2022).
 - R Core Team (2023). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL (https://www.R-project.org/)
 
 
